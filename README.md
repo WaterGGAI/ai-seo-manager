@@ -1,5 +1,10 @@
 # AI SEO Manager
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-185c46.svg)](./LICENSE)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-f38020.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg)
+![Open Source](https://img.shields.io/badge/Open%20Source-Yes-1f7a52.svg)
+
 AI SEO Manager is an open-source, Cloudflare-first platform for managing AI-powered SEO workflows across multiple websites.
 
 It is being built for small businesses, agencies, independent website operators, and developers who need one place to coordinate keyword planning, topic generation, metadata, structured data suggestions, internal linking, publishing workflows, and SEO automation without adopting a heavyweight enterprise stack.
@@ -54,6 +59,20 @@ flowchart LR
   B --> I["Workflow Modules"]
   B --> J["Search Console / External Integrations"]
 ```
+
+## Interface Preview
+
+Dashboard overview:
+
+![Control Plane Dashboard](./docs/images/control-plane-dashboard.png)
+
+Managed site detail:
+
+![Managed Site Detail](./docs/images/control-plane-site-detail.png)
+
+Readiness checklist:
+
+![Readiness Checklist](./docs/images/control-plane-readiness.png)
 
 ## Planned Capabilities
 

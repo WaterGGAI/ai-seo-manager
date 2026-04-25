@@ -17,3 +17,17 @@ Included here:
 - `test/`: worker and pipeline tests using sample site IDs
 
 This package is meant to show the architecture and implementation approach without publishing private operating data.
+
+## Preview
+
+Dashboard:
+
+![Control Plane Dashboard](../docs/images/control-plane-dashboard.png)
+
+Managed site detail:
+
+![Managed Site Detail](../docs/images/control-plane-site-detail.png)
+
+Readiness checklist:
+
+![Readiness Checklist](../docs/images/control-plane-readiness.png)
