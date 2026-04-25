@@ -1,0 +1,21 @@
+{
+  "name": "ai-seo-control",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "wrangler types --check ./worker-configuration.d.ts",
+    "cf-typegen": "wrangler types ./worker-configuration.d.ts",
+    "test": "node --import tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "db:migrate:local": "wrangler d1 migrations apply ai_seo_control --local",
+    "db:migrate:remote": "wrangler d1 migrations apply ai_seo_control --remote"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.40.0"
+  }
+}

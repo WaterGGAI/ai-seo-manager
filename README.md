@@ -88,7 +88,7 @@ It currently contains:
 - public project positioning
 - architecture and deployment notes
 - contribution-friendly structure
-- an initial Cloudflare Worker scaffold
+- a sanitized `control-plane/` source package extracted for open-source publishing
 - OSS application and roadmap documents
 
 The production ideas and workflow patterns come from real internal and multi-project SEO operations, and this public repository will gradually become the canonical open-source implementation.
@@ -97,13 +97,14 @@ The production ideas and workflow patterns come from real internal and multi-pro
 
 - `docs/` architecture notes, deployment guidance, OSS application notes, and project status
 - `frontend/` future operator-facing UI application
-- `worker/` Cloudflare Worker control-plane service
+- `control-plane/` Cloudflare Worker control-plane service with sanitized example data
+- `worker/` minimal Worker scaffold kept for early repository orientation
 - `schema/` shared data-model notes and future schema definitions
 
 ## Quick Start
 
 ```bash
-cd worker
+cd control-plane
 npm install
 npm run dev
 ```

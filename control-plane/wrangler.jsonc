@@ -1,0 +1,45 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "ai-seo-control",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "APP_NAME": "AI SEO Control",
+    "APP_ENV": "production",
+    "SCHEDULE_TIMEZONE": "Asia/Taipei",
+    "SCHEDULE_LABEL": "依各站排程自動執行"
+  },
+  "secrets": {
+    "required": ["BASIC_AUTH_USERNAME", "BASIC_AUTH_PASSWORD"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ai_seo_control_example",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
+  ],
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
+  "triggers": {
+    "crons": ["* * * * *"]
+  },
+  "env": {
+    "staging": {
+      "name": "ai-seo-control-staging",
+      "vars": {
+        "APP_ENV": "staging"
+      },
+      "secrets": {
+        "required": ["BASIC_AUTH_USERNAME", "BASIC_AUTH_PASSWORD"]
+      }
+    }
+  }
+}

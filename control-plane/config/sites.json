@@ -1,0 +1,83 @@
+{
+  "mainlineSource": {
+    "projectPath": "/workspace/examples/platform-site",
+    "reason": "Example platform backbone for SEO admin, state management, publish sync, and deployment-trigger workflow."
+  },
+  "sites": [
+    {
+      "id": "demo-brand-site",
+      "label": "示範品牌站",
+      "sourceProjectPath": "/workspace/examples/brand-site",
+      "siteType": "brand_local_seo",
+      "primaryLanguage": "zh-TW",
+      "publishMode": "kv_runtime",
+      "canonicalUrl": "https://brand.example",
+      "connectorName": "demo-brand-runtime",
+      "migrationPriority": 1,
+      "notes": [
+        "Example runtime brand connector with topic backlog and publish cadence controls.",
+        "Useful as the first onboarding sample for a Cloudflare-native SEO site."
+      ]
+    },
+    {
+      "id": "demo-local-site",
+      "label": "示範在地服務站",
+      "sourceProjectPath": "/workspace/examples/local-service-site",
+      "siteType": "brand_local_seo",
+      "primaryLanguage": "zh-TW",
+      "publishMode": "kv_runtime",
+      "canonicalUrl": "https://local.example",
+      "connectorName": "demo-local-runtime",
+      "migrationPriority": 2,
+      "notes": [
+        "Example local-intent connector for restaurants, clinics, shops, and service businesses.",
+        "Shows how a second runtime site can share most connector logic while using its own topic seeds."
+      ]
+    },
+    {
+      "id": "demo-tools-site",
+      "label": "示範工具站",
+      "sourceProjectPath": "/workspace/examples/calculator-site",
+      "siteType": "programmatic_seo_tools",
+      "primaryLanguage": "en",
+      "publishMode": "d1_override",
+      "canonicalUrl": "https://tools.example",
+      "connectorName": "demo-calculator-d1",
+      "migrationPriority": 3,
+      "notes": [
+        "Example programmatic SEO connector backed by D1 structured overrides.",
+        "Useful for calculator pages, glossaries, landing-page clusters, and other entity-driven routes."
+      ]
+    },
+    {
+      "id": "demo-platform-site",
+      "label": "示範平台站",
+      "sourceProjectPath": "/workspace/examples/platform-site",
+      "siteType": "platform_with_embedded_seo",
+      "primaryLanguage": "zh-TW",
+      "publishMode": "api_feed_build_sync",
+      "canonicalUrl": "https://platform.example",
+      "connectorName": "demo-platform-build-sync",
+      "migrationPriority": 4,
+      "notes": [
+        "Example build-sync platform that publishes content through a public feed and syncs at build time.",
+        "Use this pattern when the SEO control plane should trigger downstream Pages or GitHub-based deployments."
+      ]
+    },
+    {
+      "id": "demo-runtime-site",
+      "label": "示範即時平台站",
+      "sourceProjectPath": "/workspace/examples/runtime-app",
+      "siteType": "platform_with_embedded_seo",
+      "primaryLanguage": "zh-TW",
+      "publishMode": "kv_runtime",
+      "canonicalUrl": "https://runtime.example",
+      "connectorName": "demo-runtime-platform",
+      "migrationPriority": 5,
+      "notes": [
+        "Example runtime platform that serves product pages and SEO pages from the same Worker.",
+        "Also acts as a workflow-module donor so audit, draft, ranking, and repair flows can be reused by other sites."
+      ]
+    }
+  ]
+}
