@@ -27,6 +27,34 @@ The project is designed around:
 - multiple publishing modes
 - Cloudflare-native deployment
 
+## Public Source Now Included
+
+The repository now includes a sanitized working source package under [`control-plane/`](/Users/gregg/Documents/ChatGPT/ai-seo-manager/control-plane).
+
+That package includes:
+
+- Cloudflare Worker routes
+- D1 migrations
+- multi-site connector registry
+- admin UI rendering
+- audit, content, ranking, repair, and build-sync workflows
+- automated tests with sanitized example site data
+
+## Architecture At A Glance
+
+```mermaid
+flowchart LR
+  A["Operator Admin UI"] --> B["AI SEO Control Plane Worker"]
+  B --> C["D1 Control Plane Data"]
+  B --> D["Workers AI / LLM Provider"]
+  B --> E["Managed Sites"]
+  E --> F["Runtime Publish"]
+  E --> G["D1 Structured Overrides"]
+  E --> H["API Feed Build Sync"]
+  B --> I["Workflow Modules"]
+  B --> J["Search Console / External Integrations"]
+```
+
 ## Planned Capabilities
 
 - Multi-site SEO project registry
@@ -115,6 +143,23 @@ Then open the local Worker endpoint and verify:
 curl http://127.0.0.1:8787/healthz
 ```
 
+Useful local checks:
+
+```bash
+cd control-plane
+npm test
+npm run typecheck
+```
+
+## Control Plane Highlights
+
+- `src/index.ts`: main Worker routes and API entrypoints
+- `src/ui/admin.ts`: Traditional Chinese admin console rendering
+- `src/core/`: audit, content generation, ranking, repairs, jobs, onboarding, build sync
+- `src/connectors/`: connector contracts, manifest registry, sanitized example seeds
+- `migrations/`: D1 schema for multi-site SEO operations
+- `test/`: end-to-end route and workflow tests
+
 ## Documentation
 
 - [ROADMAP.md](./ROADMAP.md)
@@ -122,6 +167,7 @@ curl http://127.0.0.1:8787/healthz
 - [docs/cloudflare-deployment.md](./docs/cloudflare-deployment.md)
 - [docs/project-status.md](./docs/project-status.md)
 - [docs/open-source-application.md](./docs/open-source-application.md)
+- [control-plane/README.md](./control-plane/README.md)
 
 ## Contributing
 
