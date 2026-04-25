@@ -1,93 +1,104 @@
 # AI SEO Manager
 
-AI SEO Manager is an open-source platform for managing AI-powered SEO workflows across multiple websites.
+AI SEO Manager is an open-source, Cloudflare-first platform for managing AI-powered SEO workflows across multiple websites.
 
-It helps small businesses, content teams, agencies, and developers centralize SEO operations such as keyword planning, topic generation, metadata generation, structured data suggestions, internal link recommendations, content gap analysis, publishing workflows, and site-level SEO automation.
+It is being built for small businesses, agencies, independent website operators, and developers who need one place to coordinate keyword planning, topic generation, metadata, structured data suggestions, internal linking, publishing workflows, and SEO automation without adopting a heavyweight enterprise stack.
 
-The project is designed to be Cloudflare-first, lightweight, extensible, and practical for real-world multi-site operations.
+## What It Aims To Solve
 
-## Why This Project Exists
+Many teams manage SEO across multiple sites with scattered documents, ad hoc prompts, disconnected CMS workflows, and repeated manual work.
 
-Most small teams do not need a heavyweight enterprise SEO suite.
-They need one place to manage:
+AI SEO Manager is designed to make those workflows more structured and repeatable by centralizing:
 
-- multiple websites
+- managed site setup
 - keyword and topic planning
-- AI-assisted content workflows
+- AI-assisted SEO content workflows
 - technical SEO checks
 - publishing and deployment steps
-- repeatable operating procedures
+- reusable operating procedures across projects
 
-AI SEO Manager is being built to solve that problem with a developer-friendly, open architecture.
+## Core Product Direction
 
-## Core Goals
+The project is designed around:
 
-- Multi-site AI SEO management
-- Cloudflare-first deployment
-- Extensible connector model for different website types
-- AI-assisted content workflow orchestration
-- Search Console and ranking workflow integration
-- SEO audit and repair workflow support
-- Open documentation and contribution-ready project structure
+- one control plane
+- many managed websites
+- one shared SEO data model
+- multiple publishing modes
+- Cloudflare-native deployment
 
-## Target Users
+## Planned Capabilities
+
+- Multi-site SEO project registry
+- Connector-based site onboarding
+- Keyword and topic database
+- AI-generated SEO briefs
+- Meta title and description generation
+- Structured data suggestions
+- Internal link recommendations
+- Content gap analysis
+- Technical SEO audits
+- Repair-oriented workflow support
+- Publishing and build-sync orchestration
+- Search Console and ranking workflows
+- Multi-site scheduling and automation
+
+## Intended Users
 
 - Small business owners
-- Independent website operators
+- Independent site operators
 - SEO consultants
 - Content teams
 - Agencies managing multiple websites
-- Developers building SEO tools on top of Cloudflare
+- Developers building SEO tools or workflows
 
-## Planned Feature Areas
+## Cloudflare-First Architecture
 
-- Website project registry
-- Connector-based site onboarding
-- Keyword and topic database
-- AI-generated content briefs
-- Meta title and description generation
-- Structured data recommendations
-- Internal link suggestions
-- Content gap analysis
-- Technical SEO audits
-- Publishing and build-sync workflows
-- Search Console integration
-- Multi-site automation dashboard
-
-## Architecture Direction
-
-This project follows a Cloudflare-first stack:
+The initial public architecture is built around Cloudflare services:
 
 - Workers for API and orchestration
 - D1 for structured control-plane data
-- KV / R2 for content and asset-related storage when needed
-- Pages or Worker-based delivery depending on site type
+- KV or R2 where content or assets need lightweight storage
+- Pages or Worker-based publishing depending on connector type
 
-The current product direction supports multiple publish modes:
+The platform direction currently assumes support for multiple publishing modes:
 
 - `kv_runtime`
 - `d1_override`
 - `api_feed_build_sync`
 
+## Why Open Source
+
+This project is based on real operational problems encountered while managing multiple live websites.
+
+The open-source goal is to make AI SEO infrastructure more accessible to:
+
+- small teams without enterprise tooling
+- developers who want a composable Cloudflare-based SEO platform
+- operators who need practical workflows instead of abstract SEO dashboards
+
+The repository is intended to grow into a clean, contribution-friendly public version with documentation, examples, deployable modules, and community-driven extensions.
+
+## Current Repository Status
+
+This repository is the public OSS scaffold for the project.
+
+It currently contains:
+
+- public project positioning
+- architecture and deployment notes
+- contribution-friendly structure
+- an initial Cloudflare Worker scaffold
+- OSS application and roadmap documents
+
+The production ideas and workflow patterns come from real internal and multi-project SEO operations, and this public repository will gradually become the canonical open-source implementation.
+
 ## Repository Structure
 
-- `docs/` project docs, OSS application notes, architecture, deployment guidance
-- `frontend/` future operator-facing UI app
+- `docs/` architecture notes, deployment guidance, OSS application notes, and project status
+- `frontend/` future operator-facing UI application
 - `worker/` Cloudflare Worker control-plane service
-- `schema/` shared data model and schema notes
-
-## Current Status
-
-This repository is the public open-source shell for the AI SEO platform effort.
-
-The private/working implementation currently exists across real-world projects and internal operational repos. This public repo is intended to become the canonical open-source version, with documentation, examples, and deployable modules extracted into a clean contribution-friendly structure.
-
-See:
-
-- [ROADMAP.md](./ROADMAP.md)
-- [docs/architecture.md](./docs/architecture.md)
-- [docs/project-status.md](./docs/project-status.md)
-- [docs/open-source-application.md](./docs/open-source-application.md)
+- `schema/` shared data-model notes and future schema definitions
 
 ## Quick Start
 
@@ -96,6 +107,26 @@ cd worker
 npm install
 npm run dev
 ```
+
+Then open the local Worker endpoint and verify:
+
+```bash
+curl http://127.0.0.1:8787/healthz
+```
+
+## Documentation
+
+- [ROADMAP.md](./ROADMAP.md)
+- [docs/architecture.md](./docs/architecture.md)
+- [docs/cloudflare-deployment.md](./docs/cloudflare-deployment.md)
+- [docs/project-status.md](./docs/project-status.md)
+- [docs/open-source-application.md](./docs/open-source-application.md)
+
+## Contributing
+
+Contributions are welcome as the public project structure evolves.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
