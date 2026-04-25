@@ -1,0 +1,15 @@
+{
+  "name": "@ai-seo-manager/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "wrangler types --check ./worker-configuration.d.ts",
+    "cf-typegen": "wrangler types ./worker-configuration.d.ts"
+  },
+  "devDependencies": {
+    "wrangler": "^4.84.1"
+  }
+}

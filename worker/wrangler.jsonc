@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "ai-seo-manager",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-25",
+  "vars": {
+    "APP_NAME": "AI SEO Manager",
+    "APP_ENV": "development"
+  }
+}
